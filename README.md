@@ -14,7 +14,11 @@ It appears that Java doesn't support file paths that contain `%` in Class-Path a
     ```
     Class-Path: foo_3a/lib.jar
     ```
-
+1. `bin/encoded-classpath.jar` is a classpath jar that refers to URL-encoded version of  `foo%3a/lib.jar` in its MANIFEST.MF:
+    ```
+    Class-Path: foo%253a/lib.jar
+    ```
+    
 ## Scenarios
 
 ### Without classpath jar:
@@ -39,4 +43,10 @@ Caused by: java.lang.ClassNotFoundException: Library
         at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:190)
         at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
         ... 1 more
+```
+
+### With encoded-classpath.jar:
+Run `java -cp bin/encoded-classpath.jar:bin Main`. This also works fine:
+```
+Loaded library: Library@6b71769e
 ```
