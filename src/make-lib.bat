@@ -1,3 +1,3 @@
-mkdir bin
-javac -d bin Library.java
-jar -cf bin/lib.jar bin/Library.class
+javac Library.java
+jar -cf ../bin/foo_3a/lib.jar Library.class
+copy ../bin/foo_3a/lib.jar ../bin/foo%3a/lib.jar

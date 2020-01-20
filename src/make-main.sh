@@ -1,2 +1,1 @@
-mkdir -p bin
-javac -d bin Main.java
+javac -d ../bin Main.java
